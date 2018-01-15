@@ -1,4 +1,4 @@
-package com.sdyk.ai;
+
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class  chromeTest{
+public class Test {
 
 
     static WebDriver driver;
@@ -30,7 +30,7 @@ public class  chromeTest{
     static {
         System.setProperty("webdriver.chrome.driver",chromedriver_path);
     }
-    public chromeTest(){
+    public Test(){
         driver  = new ChromeDriver();
     }
 
@@ -69,7 +69,7 @@ public class  chromeTest{
 
 //        DayNews dayNews = new DayNews();
 
-        chromeTest cDriver = new chromeTest();
+        Test cDriver = new Test();
         cDriver.setChromeURL("http://www.weibo.com");
 
         //首页
@@ -90,7 +90,7 @@ public class  chromeTest{
         List<WebElement> list = driver.findElements(By.cssSelector("div.WB_cardwrap.WB_feed_type.S_bg2.WB_feed_like"));
         //分别获得每个记录
         for (WebElement ll: list
-                ) {
+             ) {
             //定义对象
             DayNews dayNews = new DayNews();
             //图片地址
@@ -107,7 +107,7 @@ public class  chromeTest{
             //图片
             List<WebElement> pics = ll.findElements(By.className("WB_pic"));
             for (WebElement pic: pics
-                    ) {
+                 ) {
                 picSrc = picSrc+pic.findElement(By.tagName("img")).getAttribute("src");
             }
             dayNews.setPicUrl(picSrc);
